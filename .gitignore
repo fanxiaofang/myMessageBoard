@@ -1,0 +1,62 @@
+# 来自chatgpt
+# ============ 小程序代码相关 ============
+
+# 微信小程序生成的缓存文件（一般不需要提交）
+.miniprogram_cache/
+miniprogram/.DS_Store
+miniprogram/.vscode/
+miniprogram/.idea/
+miniprogram/npm/
+miniprogram/node_modules/
+miniprogram/dist/
+miniprogram/build/
+
+# ============ 云函数相关 ============
+
+# 云函数依赖的 node_modules，不提交，云端通过 package.json 安装
+cloudfunctions/*/node_modules/
+
+# 云函数的本地IDE配置和缓存
+cloudfunctions/.vscode/
+cloudfunctions/.idea/
+cloudfunctions/.DS_Store/
+
+# ============ 通用忽略项 ============
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志文件
+*.log
+
+# 临时文件
+*.tmp
+*.temp
+
+# VSCode 编辑器相关文件夹
+.vscode/
+
+# JetBrains IDEs相关文件夹
+.idea/
+
+# 环境变量配置文件（如果存在）
+.env
+.env.local
+.env.*.local
+
+# git自身文件（通常默认忽略）
+.git/
+
+# Shell脚本执行过程可能生成的临时文件
+*.swp
+*.swo
+
+# 编译或打包产物（如果有）
+dist/
+build/
+output/
+
+# 你的项目中特殊文件（根据实际增减）
+# uploadCloudFunction.sh 不忽略，保留
+
