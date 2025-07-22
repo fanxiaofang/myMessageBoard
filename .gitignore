@@ -1,6 +1,7 @@
 # 来自chatgpt
 # ============ 小程序代码相关 ============
-
+# 开发者个人的本地配置
+project.private.config.json
 # 微信小程序生成的缓存文件（一般不需要提交）
 .miniprogram_cache/
 miniprogram/.DS_Store

@@ -1,0 +1,6 @@
+<!--pages/add/add.wxml-->
+<view>
+  <textarea placeholder="请输入留言内容" bindinput="onInput" value="{{content}}" maxlength="500" auto-focus="">
+  </textarea>
+  <button bindtap="submitMessage" disabled="{{!content}}">提交留言</button>
+</view>

@@ -1,2 +1,16 @@
-<!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<!-- todo： 这里 boardname 的加载总是在 button加载之后才会加载
+解决方法：确保数据先加载，再渲染页面
+ -->
+ <!-- todo：根据boardid展示对应的boardName -->
+<view wx:if="{{userInfo.boardName}}">{{userInfo.boardName}}</view>
+<view wx:else>加载中</view>
+<button type="primary" bindtap="addMessage">我要留言</button>
+
+<!-- 展示留言列表 滚动区域-->
+<scroll-view scroll-y style="height: 80vh;" bindscrolltolower="onScrollToLower" lower-threshold="80">
+  <view wx:for="{{messages}}" wx:key="_id" class="message-item">
+    <text style="font-size: 40rpx;">{{item.content}}</text>
+    <!-- <text class="time" style="font-size: 40rpx; color: #999">{{item.createdAt}}</text> -->
+  </view>
+  <!-- 加载提示 -->
+</scroll-view>
