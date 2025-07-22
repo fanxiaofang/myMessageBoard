@@ -15,6 +15,12 @@ exports.main = async (event, context) => {
     }
   }
   try {
+    // 1、获取留言总数 { total: number }
+    const countResult = await db.collection('messages')
+      .where({ boardid })
+      .count()
+    const total = countResult.total || 0
+    // 2、分页查询
     const messagesRes = await db.collection('messages')
       .where({ boardid })
       .orderBy('createdAt', 'desc')
@@ -25,6 +31,7 @@ exports.main = async (event, context) => {
     return {
       code: 0,
       openid: wxContext.OPENID,
+      total: total,
       messages: messagesRes.data || []
     }
   } catch (err) {

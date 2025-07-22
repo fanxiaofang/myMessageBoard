@@ -10,7 +10,7 @@
 <scroll-view scroll-y style="height: 80vh;" bindscrolltolower="onScrollToLower" lower-threshold="80">
   <view class="message-item" wx:for="{{messages}}" wx:key="_id" wx:for-indec="index" wx:for-item="item">
     <!-- 显示留言属于第几条，因为是倒序，所以用减法 -->
-    <text style="font-size: 40rpx;">{{skip - index}}. </text>
+    <text style="font-size: 40rpx;">{{item.seqNo}}. </text>
     <text style="font-size: 40rpx;">{{item.content}} </text>
     <text class="time" style="font-size: 40rpx; color: #999">{{item.simpleTime}}</text>
   </view>

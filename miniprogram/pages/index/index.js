@@ -8,6 +8,7 @@ Page({
     userInfo: {},
     messages: [],
     needRefresh: false, // 是否需要刷新页面
+    total: 0, // 总页数
     skip: 0, // 0 为第一页
     limit: 20, // 分页大小
     noMoreData: false, // 数据是否加载完毕
@@ -30,6 +31,7 @@ Page({
     // 如果指定reset，需要重置一些数据
     if (reset) {
       this.setData({
+        total: 0,
         skip: 0,
         noMoreData: false,
         messages: []
@@ -49,15 +51,16 @@ Page({
       }
     }).then(res => {
       if (res.result && res.result.code == 0) {
+        let total = res.result.total
         let oldMessages = reset ? [] : this.data.messages
         let newMessages = res.result.messages || []
 
-        // 使用 formatDateTime 格式化时间字段，新增 simpleTime 字段
-        newMessages = newMessages.map(item => ({
+        // 使用 formatDateTime 格式化时间字段，新增 simpleTime 字段, 新增留言序号字段：seqNo
+        newMessages = newMessages.map((item, index) => ({
           ...item,
-          simpleTime: util.formatDateTime(item.createdAt)
+          simpleTime: util.formatDateTime(item.createdAt),
+          seqNo: total - (this.data.skip + index)
         }))
-        console.log('newmessage length:', newMessages.length)
         // 第一页,无需拼接，清空旧数据
         // if (this.data.skip == 0) {
         //   oldMessages = []
@@ -66,7 +69,8 @@ Page({
         this.setData({
           messages: oldMessages.concat(newMessages),
           skip: this.data.skip + newMessages.length,
-          noMoreData: newMessages.length < this.data.limit
+          noMoreData: newMessages.length < this.data.limit,
+          total: total
         })
         // 数据加载完毕时，是否需要提示: wx.showToast
       } else {
