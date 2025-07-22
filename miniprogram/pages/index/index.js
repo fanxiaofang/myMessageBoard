@@ -20,6 +20,7 @@ Page({
   // 如果是自己首页加载，如果是进入别人空间 展示别人的board？
   // boardid: 留言板id；reset：是否从首页重新开始展示
   loadMessages: function(boardid, reset = false) {
+    console.time('loadmessage')
     if (!boardid) {
       console.error('boardid 未定义，无法加载留言')
       return
@@ -40,7 +41,7 @@ Page({
 
     // 发起请求之前，将isLoading正在加载状态设置为true，防止同时多次请求
     this.setData({ isLoading: true })
-
+    console.time('cloudm')
     // 调用云函数，获取一页数据
     wx.cloud.callFunction({
       name: 'loadMessages',
@@ -82,6 +83,7 @@ Page({
       // wx.hideLoading();
       // 请求完成之后，将isLoading 置为false，表示可以发起下一次请求
       this.setData({ isLoading: false })
+      console.timeEnd('loadmessage')
     })
   },
   addMessage: function() {
@@ -105,10 +107,12 @@ Page({
    * todo: onload的参数中有可能能传入别人的boardid
    */
   onLoad(options) {
+    console.time('login')
     wx.cloud.callFunction({
       name: 'login'
     }).then(res => {
       // console.log(res.result)
+      console.timeEnd('login')
       this.setData({
         userInfo: res.result.userInfo
       }, () => {

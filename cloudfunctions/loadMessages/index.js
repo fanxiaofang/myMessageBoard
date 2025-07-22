@@ -5,6 +5,7 @@ const db = cloud.database()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
+  console.time('cloudFunction')
   const wxContext = cloud.getWXContext()
   // 解构参数 boarid 必须与调用云函数时传入的字段一致
   const { boardid, skip = 0, limit = 20 } = event
@@ -27,7 +28,7 @@ exports.main = async (event, context) => {
       .skip(skip)
       .limit(limit)
       .get()
-
+    console.timeEnd('cloudFunction')
     return {
       code: 0,
       openid: wxContext.OPENID,
