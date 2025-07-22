@@ -7,7 +7,7 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   // 解构参数 boarid 必须与调用云函数时传入的字段一致
-  const { boardid, skip = 0, limit = 10 } = event
+  const { boardid, skip = 0, limit = 20 } = event
   if (!boardid) {
     return {
       code: 1,
