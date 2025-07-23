@@ -2,17 +2,37 @@
 解决方法：确保数据先加载，再渲染页面
  -->
  <!-- todo：根据boardid展示对应的boardName -->
-<view wx:if="{{userInfo.boardName}}">{{userInfo.boardName}}</view>
-<view wx:else>加载中</view>
-<button type="primary" bindtap="addMessage">我要留言</button>
+<!-- <view class="page"> -->
 
-<!-- 展示留言列表 滚动区域-->
-<scroll-view scroll-y style="height: 80vh;" bindscrolltolower="onScrollToLower" lower-threshold="80">
-  <view class="message-item" wx:for="{{messages}}" wx:key="_id" wx:for-indec="index" wx:for-item="item">
-    <!-- 显示留言属于第几条，因为是倒序，所以用减法 -->
-    <text style="font-size: 40rpx;">{{item.seqNo}}. </text>
-    <text style="font-size: 40rpx;">{{item.content}} </text>
-    <text class="time" style="font-size: 40rpx; color: #999">{{item.simpleTime}}</text>
+  <view class="header">
+    <text>{{scrollHeightRpx}}</text>
+    <view wx:if="{{userInfo.boardName}}">{{userInfo.boardName}}</view>
+    <view wx:else>加载中</view>
+    <button type="primary" bindtap="addMessage">我要留言</button>
   </view>
-  <!-- 加载提示 -->
-</scroll-view>
+
+  <view class="message-item" wx:for="{{messages}}" wx:key="_id" wx:for-index="index" wx:for-item="item">
+      <text style="font-size: 50rpx;">{{item.seqNo}}. </text>
+      <text style="font-size: 50rpx;">{{item.content}} </text>
+      <text class="time" style="font-size: 40rpx; color: #999">{{item.simpleTime}}</text>
+  </view>
+
+
+  <!-- 展示留言列表 滚动区域 -->
+<!--   
+  <scroll-view 
+    scroll-y
+    enhanced
+    bounces="{{false}}"
+    style="height: 1200rpx;" 
+    bindscrolltolower="onScrollToLower" 
+    lower-threshold="80">
+    <view class="message-item" wx:for="{{messages}}" wx:key="_id" wx:for-index="index" wx:for-item="item">
+      <text style="font-size: 40rpx;">{{item.seqNo}}. </text>
+      <text style="font-size: 40rpx;">{{item.content}} </text>
+      <text class="time" style="font-size: 40rpx; color: #999">{{item.simpleTime}}</text>
+    </view>
+  </scroll-view>
+ -->
+
+
