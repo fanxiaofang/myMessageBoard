@@ -19,15 +19,14 @@ Page({
   },
   // 如果是自己首页加载，如果是进入别人空间 展示别人的board？
   // boardid: 留言板id；reset：是否从首页重新开始展示
-  loadMessages: function(boardid, reset = false) {
+  loadMessages: function(boardid, reset = false, callback) {
     if (!boardid) {
       console.error('boardid 未定义，无法加载留言')
       return
     }
-    // 如果已经没有新数据, 直接返回
-    if (this.data.noMoreData) return
-    if (this.data.isLoading) return
-
+    if (!callback) {
+      callback = res => {}
+    }
     // 如果指定reset，需要重置一些数据
     if (reset) {
       this.setData({
@@ -36,6 +35,12 @@ Page({
         noMoreData: false,
         messages: []
       })
+    }
+
+    // 如果已经没有新数据,或者数据正在加载，直接返回。如果需要showToast提示，则分开写
+    if (this.data.noMoreData || this.data.isLoading) {
+      callback()
+      return
     }
 
     // 发起请求之前，将isLoading正在加载状态设置为true，防止同时多次请求
@@ -81,6 +86,8 @@ Page({
       // wx.hideLoading();
       // 请求完成之后，将isLoading 置为false，表示可以发起下一次请求
       this.setData({ isLoading: false })
+      // 如果是下拉刷新，手动关闭下拉刷新窗口
+      callback()
     })
   },
   addMessage: function() {
@@ -152,6 +159,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
+    console.log('触发下拉刷新')
+    // 下拉刷新，重置关键数据，重置数据的变量设置为true
+    const reset = true
+    const boarid = this.data.userInfo.boardid
+    const callback = () => {
+      wx.stopPullDownRefresh(); // 手动关闭下拉刷新窗口
+    };
+    this.loadMessages(boarid, reset, callback)
   },
 
   /**
