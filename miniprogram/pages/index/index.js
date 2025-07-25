@@ -16,6 +16,18 @@ Page({
     noMoreData: false, // 数据是否加载完毕
     isLoading: false, // 正在加载中，节流，防止多次请求
     avatarUrl: defaultAvatarUrl, // 临时用于测试
+    isMaster: true, // 是否是留言板的主人
+    menuItems: [
+      { id: 1, label: '删除' },
+      { id: 2, label: '编辑' }
+    ],
+    selectedLabel: '',
+  },
+  onMenuSelect(e) {
+    const selected = e.detail;
+    this.setData({
+      selectedLabel: selected.label
+    });
   },
   pageData: {
 

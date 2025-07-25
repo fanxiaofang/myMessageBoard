@@ -1,0 +1,12 @@
+
+<view class="menu-container">
+  <view class="triangle-button" bindtap="toggleMenu"></view>
+
+  <view wx:if="{{showMenu}}" class="dropdown">
+    <block wx:for="{{menuItems}}" wx:key="index">
+      <view class="dropdown-item" bindtap="onSelect" data-index="{{index}}">
+        {{item.label}}
+      </view>
+    </block>
+  </view>
+</view>

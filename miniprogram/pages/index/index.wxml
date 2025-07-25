@@ -23,6 +23,7 @@
         <view class="nick-seqNo">
           <text class="nickname">大魔王</text>
           <text class="seqNo">第{{item.seqNo}}楼</text>
+          <my-menu wx:if="{{isMaster}}" class="menu" menu-items="{{menuItems}}" bindselect="onMenuSelect" />
         </view>
         <text class="message-content">{{item.content}} </text>
         <text class="time">{{item.simpleTime}}</text>

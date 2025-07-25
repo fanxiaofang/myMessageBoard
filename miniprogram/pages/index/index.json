@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "my-menu": "/components/menu/menu"
+  },
   "onReachBottomDistance": 200,
   "enablePullDownRefresh": true,
   "backgroundColor": "#fefefe",

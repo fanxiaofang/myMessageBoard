@@ -97,7 +97,14 @@
   line-height: 40rpx;
   margin-left: 10rpx;
 }
-
+.menu {
+  margin-left: auto; /* 推向右边 */
+  display: flex;
+  align-items: center;
+  /* 可根据需要设置宽高 */
+  width: 24rpx;
+  height: 24rpx;
+}
 .message-content {
   /* 占据剩余空间 */
   flex-grow: 1;

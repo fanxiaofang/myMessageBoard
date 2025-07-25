@@ -1,0 +1,51 @@
+/* components/menu/menu.wxss */
+.menu-container {
+  position: relative;
+  width: 24px; /* 容器宽度 */
+  user-select: none;
+  /* border: 1px solid red; 方便调试时查看容器边界 */
+}
+
+/* 让三角按钮靠右显示 */
+.triangle-button {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  /* border-top: 8px solid #333; */
+  border-top: 8px solid rgba(51, 51, 51, 0.3);
+  cursor: pointer;
+  margin-left: auto; /* 靠右 */
+  display: block; /* 宽度为0时设置为block使margin-left有效 */
+  margin-top: 4px;
+}
+
+/* 下拉菜单右侧对齐容器右侧 */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0; /* 右对齐 */
+  min-width: 60px;
+  /* background-color: white; */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* border: 1px solid #ccc; */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.dropdown-item {
+  padding: 8px 10px;
+  /* border-bottom: 1px solid #eee; */
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
