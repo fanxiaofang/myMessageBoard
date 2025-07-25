@@ -1,6 +1,46 @@
-<!--pages/add/add.wxml-->
-<view>
-  <textarea placeholder="请输入留言内容" bindinput="onInput" value="{{content}}" maxlength="500" auto-focus="">
+<!-- 留言输入区域 -->
+<view class="message-box">
+  <textarea 
+    class="message-input"
+    placeholder="请输入留言内容" 
+    bindinput="onInput" 
+    value="{{content}}" 
+    maxlength="500" 
+    auto-focus="">
   </textarea>
-  <button bindtap="submitMessage" disabled="{{!content}}">提交留言</button>
+  <button 
+    class="submit-btn"
+    bindtap="submitMessage" 
+    disabled="{{!content}}"
+  >发表</button>
+</view>
+
+<!-- 提示词区域 -->
+<view class="tips-wrapper">
+  <view class="tip-item" bindtap="onTipClick" data-value="踩踩">踩踩</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="给力">给力</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="万事胜意">万事胜意</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="我来了，我走了">我来了，我走了</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="沙发">沙发</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="萌萌哒">萌萌哒</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="情深深雨蒙蒙">情深深雨蒙蒙</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="鸭梨山大">鸭梨山大</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="翠花，上酸菜">翠花，上酸菜</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="潜水">潜水</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="你妈妈喊你回家吃饭">你妈妈喊你回家吃饭</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="神马都是浮云">神马都是浮云</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="我们做朋友吧">我们做朋友吧</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="雷">雷</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="跑堂">跑堂</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="重要的事情说三遍">重要的事情说三遍</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="皮皮虾我们走">皮皮虾我们走</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="蓝瘦香菇">蓝瘦香菇</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="定个小目标">定个小目标</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="正能量">正能量</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="请开始你的表演">请开始你的表演</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="用我一生换你十年天真无鞋">用我一生换你十年天真无鞋</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="带我飞">带我飞</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="惊不惊喜，意不意外">惊不惊喜，意不意外</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="886">886</view>
+  <!-- 更多提示词 -->
 </view>

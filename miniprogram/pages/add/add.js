@@ -9,6 +9,22 @@ Page({
     boardid:'',
     content: '' // 留言内容
   },
+  
+  onTipClick(e) {
+    const tip = e.currentTarget.dataset.value;
+    const currentContent = this.data.content || '';
+
+    // 如果当前内容不为空，追加时先加一个空格，避免词语粘连
+    const newContent = currentContent.length > 0 ? currentContent + ' ' + tip : tip;
+
+    // 注意长度限制（maxlength=500），这里简单截断
+    const maxLength = 500;
+    const truncatedContent = newContent.length > maxLength ? newContent.slice(0, maxLength) : newContent;
+
+    this.setData({
+      content: truncatedContent
+    });
+  },
 
   onInput(e) {
     // console.log(e)
@@ -42,7 +58,7 @@ Page({
       console.log(res)
       if (res.result.code == 0) {
         wx.showToast({
-          title: '留言成功',
+          title: '发表成功',
           icon: 'success',
           duration: 1500,
           success() {
@@ -64,7 +80,7 @@ Page({
       }
     }).catch(err => {
       wx.showToast({
-        title: '留言失败，请重试',
+        title: '发表失败，请重试',
         icon: 'none'
       })
       console.log(err)
