@@ -64,7 +64,7 @@
 .avatar {
   width: 80rpx;
   height: 80rpx;
-  border-radius: 50%;
+  border-radius: 50%; /*  圆形头像 */
   margin-right: 10px;
   flex-shrink: 0; /* 防止头像被压缩 */
 }

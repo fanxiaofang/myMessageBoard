@@ -1,5 +1,7 @@
 <!--pages/me/me.wxml-->
-<button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-  <image class="avatar" src="{{avatarUrl}}" mode="aspectFill"></image>
-</button> 
+<view class="avatar-wrapper">
+  <button class="avatar-button" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+    <image class="avatar" src="{{avatarUrl}}" mode="aspectFill"></image>
+  </button> 
+</view>
 <input type="nickname" class="weui-input" placeholder="请输入昵称"/>

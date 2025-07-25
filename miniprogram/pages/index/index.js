@@ -1,6 +1,10 @@
 const util = require('../../utils/util')
 // 临时用于测试
-const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+// const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+const defaultAvatarUrl1 = 'cloud://cloud1-4gxx0ejm50ee913a.636c-cloud1-4gxx0ejm50ee913a-1367623107/defaultAvatars/infp22.png'
+const defaultAvatarUrl2 = 'cloud://cloud1-4gxx0ejm50ee913a.636c-cloud1-4gxx0ejm50ee913a-1367623107/defaultAvatars/infp11.png'
+const defaultAvatarUrl = defaultAvatarUrl2
+
 Page({
 
   /**
@@ -15,7 +19,8 @@ Page({
     limit: 20, // 分页大小
     noMoreData: false, // 数据是否加载完毕
     isLoading: false, // 正在加载中，节流，防止多次请求
-    avatarUrl: defaultAvatarUrl, // 临时用于测试
+    avatarUrl: defaultAvatarUrl, // 默认头像 临时用于测试
+    // currentBoardid: ,
     isMaster: true, // 是否是留言板的主人
     menuItems: [
       { id: 1, label: '删除' },
@@ -24,10 +29,27 @@ Page({
     selectedLabel: '',
   },
   onMenuSelect(e) {
-    const selected = e.detail;
-    this.setData({
-      selectedLabel: selected.label
-    });
+    console.log(e)
+    const msgid = e.currentTarget.dataset.msgid
+    const boardid = this.data.userInfo.boardid
+    const selected = e.detail
+    const action = e.detail.label
+    // this.setData({
+    //   selectedLabel: selected.label
+    // });
+    wx.cloud.callFunction({
+      name: 'delmessage',
+      data: {
+        boardid,
+        msgid
+      }
+    }).then(res => {
+      // console.log(res)
+      if (res.result.code == 0) {
+        // 删除成功后需重新加载留言列表
+        this.loadMessages(boardid, true)
+      }
+    })
   },
   pageData: {
 
