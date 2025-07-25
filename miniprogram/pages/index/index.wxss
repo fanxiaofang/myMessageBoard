@@ -1,0 +1,114 @@
+.header {
+  padding: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+.bless,
+.title {
+  border-bottom: 1rpx solid #eee;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 32rpx; /* 你可以根据需求调整 */
+    color: #333333;
+    text-shadow: 1rpx 1rpx 1rpx rgba(0, 0, 0, 0.3);
+}
+
+.tomessage {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10rpx;
+  border-bottom: 1rpx solid #ccc;
+
+  align-items: center;     /* 垂直居中对齐 */
+  justify-content: flex-start; /* 子元素靠左排列 */
+  gap: 20rpx;              /* 子元素间距 */
+  padding: 10rpx 0;
+}
+
+.msgcount {
+  font-size: 30rpx;
+  margin-right: 10rpx;
+}
+.btn {
+  margin: 5rpx;
+  font-weight: normal;
+  font-size: 26rpx;
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 50rpx;
+  border-radius: 5rpx;    /* 圆角 */
+  box-sizing: border-box; /* 包含padding在内的宽度 */
+  /* 如果想覆盖 type="primary" 默认颜色 */
+  background-color: #72aceb;
+  color: white;
+  border: none;
+  padding: 0;
+}
+
+/* 留言列表区 */
+.messages-list {
+  padding: 30rpx;
+  /* margin-bottom: 10rpx; */
+}
+.message-item {
+  flex-direction: row; /*横向排列头像和右侧内容*/
+  display: flex;
+  margin-bottom: 30rpx;
+  border-bottom: 1rpx solid #eee;
+}
+/* 头像样式 */
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 10px;
+  flex-shrink: 0; /* 防止头像被压缩 */
+}
+/* 右侧 */
+.content-wrapper {
+  /* 占满剩余宽度 */
+  flex: 1; 
+  /* 头像和右侧内容间距 */
+  /* margin-left: 20rpx;       */
+  display: flex;
+  /* 纵向排列 */
+  flex-direction: column;
+}
+.nick-seqNo {
+  display: flex;
+  flex-direction: row;
+  /* 居中垂直对齐 */
+  /* align-items: center; */
+  align-items: flex-start;  /* 顶部对齐 */
+  margin-bottom: 10rpx;
+}
+.nickname {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+  line-height: 40rpx;
+}
+.seqNo {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  margin-left: 10rpx;
+}
+
+.message-content {
+  /* 占据剩余空间 */
+  flex-grow: 1;
+  font-size: 30rpx;
+  color: #666;
+  line-height:40rpx;
+  word-break: break-word;
+  margin-bottom: 10rpx;
+}
+.time {
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #999;
+}

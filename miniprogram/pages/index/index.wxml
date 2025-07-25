@@ -5,34 +5,30 @@
 <!-- <view class="page"> -->
 
   <view class="header">
-    <text>{{scrollHeightRpx}}</text>
-    <view wx:if="{{userInfo.boardName}}">{{userInfo.boardName}}</view>
-    <view wx:else>加载中</view>
-    <button type="primary" bindtap="addMessage">我要留言</button>
-  </view>
-
-  <view class="message-item" wx:for="{{messages}}" wx:key="_id" wx:for-index="index" wx:for-item="item">
-      <text style="font-size: 50rpx;">{{item.seqNo}}. </text>
-      <text style="font-size: 50rpx;">{{item.content}} </text>
-      <text class="time" style="font-size: 40rpx; color: #999">{{item.simpleTime}}</text>
-  </view>
-
-
-  <!-- 展示留言列表 滚动区域 -->
-<!--   
-  <scroll-view 
-    scroll-y
-    enhanced
-    bounces="{{false}}"
-    style="height: 1200rpx;" 
-    bindscrolltolower="onScrollToLower" 
-    lower-threshold="80">
-    <view class="message-item" wx:for="{{messages}}" wx:key="_id" wx:for-index="index" wx:for-item="item">
-      <text style="font-size: 40rpx;">{{item.seqNo}}. </text>
-      <text style="font-size: 40rpx;">{{item.content}} </text>
-      <text class="time" style="font-size: 40rpx; color: #999">{{item.simpleTime}}</text>
+    <!-- <view wx:if="{{userInfo.boardName}}">{{userInfo.boardName}}</view>
+    <view wx:else>留言板</view> -->
+    <text class="title">主人寄语</text>
+    <text class="bless">欢迎光临我的空间</text>
+    <view class="tomessage">
+      <text class="msgcount">留言({{total}})</text>
+      <button class="btn" size="mini" bindtap="addMessage">我要留言</button>
     </view>
-  </scroll-view>
- -->
+  </view>
+
+  <view class="messages-list">
+    <view class="message-item" wx:for="{{messages}}" wx:key="_id" wx:for-index="index" wx:for-item="item">
+      <!-- 头像 -->
+      <image class="avatar" src="https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0" mode="aspectFill"></image>
+      <view class="content-wrapper">
+        <view class="nick-seqNo">
+          <text class="nickname">大魔王</text>
+          <text class="seqNo">第{{item.seqNo}}楼</text>
+        </view>
+        <text class="message-content">{{item.content}} </text>
+        <text class="time">{{item.simpleTime}}</text>
+      </view>
+    </view>
+  </view>
+
 
 
