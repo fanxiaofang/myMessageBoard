@@ -7,6 +7,7 @@ Page({
    */
   data: {
     boardid:'',
+    boardname:'留言板', // 默认值
     content: '' // 留言内容
   },
   
@@ -95,7 +96,8 @@ Page({
     // 这里接收的参数 未定义 
     console.log('接收参数：', options)
     this.setData({
-      boardid: options.boardid
+      boardid: options.boardid,
+      boardname: options.boardname
     })
   },
 
@@ -103,7 +105,10 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+  // 动态设置页面标题，只能在onReady中
+    wx.setNavigationBarTitle({
+      title: this.data.boardname,
+    })
   },
 
   /**

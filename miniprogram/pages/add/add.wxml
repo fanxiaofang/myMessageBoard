@@ -29,16 +29,15 @@
   <view class="tip-item" bindtap="onTipClick" data-value="潜水">潜水</view>
   <view class="tip-item" bindtap="onTipClick" data-value="你妈妈喊你回家吃饭">你妈妈喊你回家吃饭</view>
   <view class="tip-item" bindtap="onTipClick" data-value="神马都是浮云">神马都是浮云</view>
-  <view class="tip-item" bindtap="onTipClick" data-value="我们做朋友吧">我们做朋友吧</view>
   <view class="tip-item" bindtap="onTipClick" data-value="雷">雷</view>
   <view class="tip-item" bindtap="onTipClick" data-value="跑堂">跑堂</view>
+  <view class="tip-item" bindtap="onTipClick" data-value="天真无鞋">天真无鞋</view>
   <view class="tip-item" bindtap="onTipClick" data-value="重要的事情说三遍">重要的事情说三遍</view>
   <view class="tip-item" bindtap="onTipClick" data-value="皮皮虾我们走">皮皮虾我们走</view>
   <view class="tip-item" bindtap="onTipClick" data-value="蓝瘦香菇">蓝瘦香菇</view>
   <view class="tip-item" bindtap="onTipClick" data-value="定个小目标">定个小目标</view>
   <view class="tip-item" bindtap="onTipClick" data-value="正能量">正能量</view>
   <view class="tip-item" bindtap="onTipClick" data-value="请开始你的表演">请开始你的表演</view>
-  <view class="tip-item" bindtap="onTipClick" data-value="用我一生换你十年天真无鞋">用我一生换你十年天真无鞋</view>
   <view class="tip-item" bindtap="onTipClick" data-value="带我飞">带我飞</view>
   <view class="tip-item" bindtap="onTipClick" data-value="惊不惊喜，意不意外">惊不惊喜，意不意外</view>
   <view class="tip-item" bindtap="onTipClick" data-value="886">886</view>

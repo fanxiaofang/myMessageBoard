@@ -132,7 +132,7 @@ Page({
     // const openid = this.data.userInfo._openid
     const boardid = this.data.userInfo.boardid
     wx.navigateTo({
-      url: `/pages/add/add?boardid=${boardid}`,
+      url: `/pages/add/add?boardid=${boardid}&boardname=${this.data.userInfo.boardName}`,
     })
   },
 
