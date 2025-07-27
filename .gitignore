@@ -12,6 +12,9 @@ miniprogram/node_modules/
 miniprogram/dist/
 miniprogram/build/
 
+# Vant Weapp 相关
+miniprogram_npm/
+
 # ============ 云函数相关 ============
 
 # 云函数依赖的 node_modules，不提交，云端通过 package.json 安装
