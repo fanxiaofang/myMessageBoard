@@ -3,10 +3,10 @@
   height: 120rpx; /* 设置合适的高度 */
   overflow: hidden; /* 确保图片不会超出容器 */
   padding: 0;
-  margin: 0;
+  margin: 30rpx auto; /* 左右自动外边距，水平居中 ,上下边距分别30rpx*/
   border: none;
   background: none;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   position: relative;
 }
 
@@ -26,9 +26,68 @@
 }
 
 .avatar {
+  /* 设置圆头像 */
+  border-radius: 50%;
   width: 100%; /* 图片宽度填满容器 */
   height: 100%; /* 图片高度填满容器 */
   object-fit: cover; /* 保持宽高比的同时填充整个容器 */
   object-position: center;    /* 图片中心对齐容器中心 */
   display: block;    /*避免图片底部出现空隙*/
+}
+
+/* 信息区 */
+.setcontainer, .blesscontainer {
+  display: flex;
+  flex-direction: column; /* 两个模块垂直排列 */
+  gap: 10rpx;             /* 模块之间间距 */
+  padding: 20rpx;
+  padding-right: 0;
+  border-radius: 10rpx;    /* 圆角 */
+  border: 1rpx solid #fff; /* 描边边框，线宽和颜色可调整 */
+  background-color: #fff;  /* 可选，设置背景色，让圆角边框更明显 */
+  box-sizing: border-box;  /* 确保padding和border计算在内 */
+  box-shadow: 0 2rpx 5rpx rgba(0,0,0,0.05);
+  margin-left: 25rpx;  /* 左边距 */
+  margin-right: 25rpx; /* 右边距 */
+  margin-bottom: 30rpx;
+}
+.name, .myboard, .bless {
+  display: flex;
+  align-items: center;  /* 垂直居中对齐 */
+  gap: 20rpx;             /* 元素之间间距，可调整 */
+  padding: 30rpx 0; /* 只设置上下填充，左右不填充，保证boder-bottom下框线从昵称的正下方开始*/
+  margin: 0;
+  margin-left: 20rpx; /* 只设置左边的margin 是为了下边框线右边没有空余*/
+  height: 40rpx;
+  /* border-bottom: 1px solid #eee; */
+  /* border-bottom: 1px solid #ccc; */
+  /* border-top: 1px solid #ccc;  */
+  align-items: center;    /* 文字和输入框垂直居中 */
+}
+
+.name {
+    border-bottom: 1px solid #eee;
+}
+
+.weui-input {
+  flex: 1;              /* 输入框占剩余空间，可根据需要调整 */
+  min-width: 300rpx;     /* 最小宽度 */
+}
+
+/* 文字宽度固定，输入框占剩余空间 */
+.name text, .myboard text, .bless text {
+  width: 150rpx;
+  font-size: 30rpx;
+  color: rgb(71, 70, 70);
+}
+
+/* 我的寄语 */
+.bless {
+  height: 100rpx;
+}
+.bless-textarea {
+  max-height: 110rpx; /* 限制最大高度 */
+  overflow-y: auto;   /* 超出出现滚动条 */
+  resize: none;       /* 禁止拖拽调整大小 */
+  line-height: 40rpx; /* 调整行高 */
 }

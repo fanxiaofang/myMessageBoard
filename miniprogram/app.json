@@ -4,6 +4,22 @@
     "pages/add/add",
     "pages/me/me"
   ],
+  "tabBar": {
+    "borderStyle":"white", 
+    "color": "#7A7E83",
+    "selectedColor": "#111111",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "空间"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我"
+      }
+    ]
+  },
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",

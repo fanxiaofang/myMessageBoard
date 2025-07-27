@@ -1,15 +1,17 @@
-// pages/me/me.js
+
 // const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 const defaultAvatarUrl1 = 'cloud://cloud1-4gxx0ejm50ee913a.636c-cloud1-4gxx0ejm50ee913a-1367623107/defaultAvatars/infp22.png'
 const defaultAvatarUrl2 = 'cloud://cloud1-4gxx0ejm50ee913a.636c-cloud1-4gxx0ejm50ee913a-1367623107/defaultAvatars/infp11.png'
 const defaultAvatarUrl = defaultAvatarUrl2
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     avatarUrl: defaultAvatarUrl,
+    boardname:'大魔王',
+    nickname:'小蝴蝶',
+    mybless:'你好',
   },
   onChooseAvatar(e) {
     const { avatarUrl } = e.detail 
@@ -17,11 +19,30 @@ Page({
       avatarUrl,
     })
   },
+  onInputNickName(e) {
+    this.setData({
+      nickname: e.detail.value
+    })
+    // console.log(e)
+  },
+  onInputBoardName(e) {
+    console.log(e)
+    this.setData({
+      boardname: e.detail.value
+    })
+  },
+
+  onInputBless(e) {
+    console.log(e)
+    this.setData({
+      mybless: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    // 获取 我 的数据，保存到 data数据中
   },
 
   /**

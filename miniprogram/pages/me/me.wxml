@@ -4,4 +4,26 @@
     <image class="avatar" src="{{avatarUrl}}" mode="aspectFill"></image>
   </button> 
 </view>
-<input type="nickname" class="weui-input" placeholder="请输入昵称"/>
+
+<view class="setcontainer">
+  <!-- 昵称区 -->
+  <view class="name">
+    <text>我的昵称:</text>
+    <!-- 微信特定 type 可获取到微信昵称 -->
+    <input type="nickname" class="weui-input" placeholder="请输入你的名字" maxlength="20" value="{{nickname}}" bindinput="onInputNickName"/>
+  </view>
+
+  <!-- 显示留言板的名字，编辑按钮 -->
+  <view class="myboard">
+    <text>我的空间</text>
+    <input type="text" placeholder="请输入空间名称"  maxlength="50" value="{{boardname}}" bindinput="onInputBoardName" />
+  </view>
+</view>
+
+  <!-- 主人寄语，编辑 -->
+<view class="blesscontainer">
+  <view class="bless">
+    <text>我的寄语</text>
+    <textarea  class="bless-textarea" placeholder="请输入寄语" auto-height maxlength="100" value="{{mybless}}" bindinput="onInputBless" />
+  </view>
+</view>
