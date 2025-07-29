@@ -145,14 +145,8 @@ Page({
     wx.cloud.callFunction({
       name: 'login'
     }).then(res => {
-      console.log(res)
-      // 由于云存储权限只有：只有创建者可读写，因此默认头像的设置需要用到静态图片
-      let tmpUserInfo = res.result.userInfo
-      // if (!tmpUserInfo.avatarUrl) {
-      //   tmpUserInfo.avatarUrl = '../../images/infp11.png'
-      // }
       this.setData({
-        userInfo: tmpUserInfo
+        userInfo: res.result.userInfo
       }, () => {
         // setData成功之后的回调，确保 userInfo已经设置
         // 加载留言信息, 传入自己额board
@@ -173,10 +167,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    // 获取全局数据
+    const app = getApp()
     // 检测页面是否需要刷新留言列表
-    if (this.data.needRefresh) {
+    if (app.globalData.msgListNeedRefresh) {
+      // 需要重新渲染页面数据
+      // 从数据库中拉取用户信息，这里拉取自己的信息，不用传_id 参数，默认是查询自己的信息
+      wx.cloud.callFunction({
+        name: 'loadUserInfo'
+      }).then(res => {
+        const userData = res.result.data
+        this.setData({
+          userInfo: userData
+        })
+      })
       // 刷新留言列表之后，重置 needRefresh 的值
-      this.setData({ needRefresh: false })
+      app.globalData.msgListNeedRefresh = false
       const boardid = this.data.userInfo.boardid
       let reset = true
       this.loadMessages(boardid, reset)

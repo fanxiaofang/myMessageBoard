@@ -63,12 +63,17 @@ Page({
           icon: 'success',
           duration: 1500,
           success() {
+            /*
             const pages = getCurrentPages()
             const indexPage = pages[pages.length - 2] // 上一个页面的索引，所以-2
             // 给index页面传递 刷新留言列表 的标志
             indexPage.setData({
               needRefresh:true
             })
+            */
+            // 添加留言之后需要重新加载留言列表
+            const app = getApp()
+            app.globalData.msgListNeedRefresh = true
             // 提交之后，展示完toast，返回上一个页面，navigator默认参数是1,即返回一级
             wx.navigateBack();
           }

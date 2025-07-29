@@ -29,7 +29,6 @@ Page({
       filePath: avatarUrl, // 临时文件路径
       success: res => {
         const fileId = res.fileID
-        console.log('上传成功，fileid：', fileId);
         // 调用云函数 更新数据
         wx.cloud.callFunction({
           name: 'updateUserInfo',
@@ -44,8 +43,11 @@ Page({
             this.setData({
               avatarUrl: res1.result.data.avatarUrl
             }, () => {
+              // 头像更新完毕之后需要重新加载留言列表
+              const app = getApp()
+              app.globalData.msgListNeedRefresh = true
               wx.showToast({
-                title: '上传成功',
+                title: '更新成功',
                 icon: 'success',
                 duration: 1500
               })
@@ -102,7 +104,6 @@ Page({
 
   // 保存按钮点击事件
   onSave() {
-    // 这里执行保存操作，比如调用后端接口或本地存储
     // 调用云函数 更新数据
     wx.cloud.callFunction({
       name: 'updateUserInfo',
@@ -123,6 +124,9 @@ Page({
           mybless: this.data.editedMybless,
           isEdited: false,
         }, () => {
+          // 信息修改完毕之后需要重新加载留言列表
+          const app = getApp()
+          app.globalData.msgListNeedRefresh = true
           wx.showToast({
             title: '保存成功',
             icon: 'success',
@@ -181,7 +185,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
   },
 
   /**

@@ -8,7 +8,7 @@
     <!-- <view wx:if="{{userInfo.boardName}}">{{userInfo.boardName}}</view>
     <view wx:else>留言板</view> -->
     <text class="title">主人寄语</text>
-    <text class="bless">欢迎光临我的空间</text>
+    <text class="bless">{{userInfo.myBless}}</text>
     <view class="tomessage">
       <text class="msgcount">留言({{total}})</text>
       <van-button class="btn" color="#72aceb" type="small" bindtap="addMessage">我要留言</van-button>
