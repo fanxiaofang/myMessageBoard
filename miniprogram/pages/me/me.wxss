@@ -91,3 +91,19 @@
   resize: none;       /* 禁止拖拽调整大小 */
   line-height: 40rpx; /* 调整行高 */
 }
+
+/* 引入vant之后的主人寄语实现 */
+.btncontainer {
+  /* margin设置和.setcontainer, .blesscontainer 一样  */
+  margin-left: 25rpx;  /* 左边距 */
+  margin-right: 25rpx; /* 右边距 */
+
+  position: fixed; /* 固定定位，相对于屏幕 */
+  bottom: 20rpx;       /* 距离底部距离 */
+  left: 0;
+  right: 0;
+
+  background-color: #fff; /* 视需求添加背景，避免内容遮挡 */
+  box-shadow: 0 -2rpx 6rpx rgba(0,0,0,0.1); /* 轻微阴影，区分内容 */
+  z-index: 100; /* 确保按钮在最上层 */
+}

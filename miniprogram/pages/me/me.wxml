@@ -27,3 +27,15 @@
     <textarea  class="bless-textarea" placeholder="请输入寄语" auto-height maxlength="100" value="{{mybless}}" bindinput="onInputBless" />
   </view>
 </view>
+
+<!-- 保存按钮，仅当有修改时显示 -->
+<!-- wx:if="{{isEdited}}" -->
+<!-- disabled="{{!isEdited}}" -->
+<view class="btncontainer">
+  <van-button
+    type="primary"
+    bindtap="onSave"
+    disabled="{{!isEdited ? true : false}}"
+    size="large"
+    >保存</van-button>
+</view>

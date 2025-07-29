@@ -11,17 +11,17 @@
     <text class="bless">欢迎光临我的空间</text>
     <view class="tomessage">
       <text class="msgcount">留言({{total}})</text>
-      <button class="btn" size="mini" bindtap="addMessage">我要留言</button>
+      <van-button class="btn" color="#72aceb" type="small" bindtap="addMessage">我要留言</van-button>
     </view>
   </view>
 
   <view class="messages-list">
     <view class="message-item" wx:for="{{messages}}" wx:key="_id" wx:for-index="index" wx:for-item="item">
       <!-- 头像 -->
-      <image class="avatar" src="{{avatarUrl}}" mode="aspectFill"></image>
+      <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
       <view class="content-wrapper">
         <view class="nick-seqNo">
-          <text class="nickname">大魔王</text>
+          <text class="nickname">{{userInfo.nickName}}</text>
           <text class="seqNo">第{{item.seqNo}}楼</text>
           <my-menu wx:if="{{isMaster}}" 
           class="menu" 

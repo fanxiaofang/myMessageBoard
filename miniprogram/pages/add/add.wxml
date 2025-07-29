@@ -8,11 +8,13 @@
     maxlength="500" 
     auto-focus="">
   </textarea>
-  <button 
+  <van-button 
     class="submit-btn"
     bindtap="submitMessage" 
     disabled="{{!content}}"
-  >发表</button>
+    size="large"
+    type="primary"
+  >发表</van-button>
 </view>
 
 <!-- 提示词区域 -->

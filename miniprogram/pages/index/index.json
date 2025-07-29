@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "my-menu": "/components/menu/menu"
+    "my-menu": "/components/menu/menu",
+    "van-button": "@vant/weapp/button"
   },
   "onReachBottomDistance": 200,
   "enablePullDownRefresh": true,

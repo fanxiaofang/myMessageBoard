@@ -19,7 +19,7 @@ Page({
     limit: 20, // 分页大小
     noMoreData: false, // 数据是否加载完毕
     isLoading: false, // 正在加载中，节流，防止多次请求
-    avatarUrl: defaultAvatarUrl, // 默认头像 临时用于测试
+    avatarUrl: '', 
     // currentBoardid: ,
     isMaster: true, // 是否是留言板的主人
     menuItems: [
@@ -136,20 +136,6 @@ Page({
     })
   },
 
-  onGetUserProfile: function() {
-    wx.getUserProfile({
-      desc: '用于完善用户资料',
-      success: (res) => {
-        const wxuser = res.userInfo;
-        console.log('name:', wxuser.nickName, ' url:', wxuser.avatarUrl)
-        console.log(wxuser)
-      },
-      fail: () => {
-        wx.showToast({ title: '授权失败，无法获取完整用户信息', icon: 'none' });
-      }
-    })
-  
-  },
   /**
    * 生命周期函数--监听页面加载
    * todo: onload页面加载时，能否再login的云函数中 直接获取到该用户的messages信息，直接返回，而不是login云函数之后，再调用一次 loadMessages云函数
@@ -159,8 +145,14 @@ Page({
     wx.cloud.callFunction({
       name: 'login'
     }).then(res => {
+      console.log(res)
+      // 由于云存储权限只有：只有创建者可读写，因此默认头像的设置需要用到静态图片
+      let tmpUserInfo = res.result.userInfo
+      // if (!tmpUserInfo.avatarUrl) {
+      //   tmpUserInfo.avatarUrl = '../../images/infp11.png'
+      // }
       this.setData({
-        userInfo: res.result.userInfo
+        userInfo: tmpUserInfo
       }, () => {
         // setData成功之后的回调，确保 userInfo已经设置
         // 加载留言信息, 传入自己额board
