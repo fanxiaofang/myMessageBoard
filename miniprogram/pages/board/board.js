@@ -287,11 +287,5 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage() {
-    console.log('onShareAppMessage, boarid:', this.data.listUserInfo.boardid)
-    return {
-      title: '来踩踩',
-      path: '/pages/board/board?boardid=' + this.data.listUserInfo.boardid + '&shareType=visit',
-      imageUrl: '../../images/infp11.png'
-    }
   }
 })

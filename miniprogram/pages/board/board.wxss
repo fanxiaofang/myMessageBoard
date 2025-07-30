@@ -1,3 +1,4 @@
+/* pages/board/board.wxss */
 .header {
   padding: 30rpx;
   display: flex;

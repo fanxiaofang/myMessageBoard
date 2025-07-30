@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/add/add",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/board/board"
   ],
   "tabBar": {
     "borderStyle":"white", 

@@ -12,13 +12,12 @@
     <view class="tomessage">
       <text class="msgcount">留言({{total}})</text>
       <van-button class="btn" color="#72aceb" type="small" bindtap="addMessage">我要留言</van-button>
-      <!-- 是留言板主人 才展示这个分享按钮 -->
-      <van-icon wx:if="{{isMaster}}" 
-        class="share-icon" 
-        name="share"  
+      <!-- 不是留言板主人 才展示这个“返回我的空间” -->
+      <van-icon wx:if="{{!isMaster}}" 
+        name="home"  
         color="#bbb" 
         size="40rpx"  
-        open-type="share"/>
+        bind:click="gotoIndex"/>
     </view>
   </view>
 

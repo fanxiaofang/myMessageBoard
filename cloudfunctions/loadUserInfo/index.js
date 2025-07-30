@@ -7,8 +7,10 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const myid = wxContext.OPENID
+  let _id = ''
   // 如果没有参数，则表示是查询自己的用户信息
   const { id } = event
+  console.log(event)
   if (id) {
     _id = id
   } else {
