@@ -30,6 +30,14 @@ Page({
     ],
     selectedLabel: '',
   },
+
+  // 返回自己的留言板, 普通页面返回index tabBar页面只能用 wx.switchTab({ url })，且不能携带参数
+  gotoIndex: function() {
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
+  },
+
   onMenuSelect(e) {
     console.log(e)
     const msgid = e.currentTarget.dataset.msgid
@@ -138,18 +146,6 @@ Page({
     })
   },
 
-  shareTo: function() {
-    console.log('onshareTo')
-    wx.showActionSheet({
-      itemList: ['分享给微信好友'],
-      success: (res) => {
-        if (res.tapIndex == 0) {
-          // 触发分享
-          this.onShareAppMessage();
-        }
-      }
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    * todo: onload页面加载时，能否再login的云函数中 直接获取到该用户的messages信息，直接返回，而不是login云函数之后，再调用一次 loadMessages云函数
@@ -164,28 +160,28 @@ Page({
       }, () => {
         // 判断是否点开的分享链接
         if (options.shareType == 'visit') {
-          console.log(options)
           this.setData({
             isMaster:false,
             visitedBoardId:options.boardid
           })
           // 从数据库中获取boardid对应的用户信息，并setData到listUserInfo中
-          console.log("visitedBoardId:",this.data.visitedBoardId)
           wx.cloud.callFunction({
             name: 'loadUserInfo',
             data: {
               id:this.data.visitedBoardId
             }
           }).then(res => {
-            // console.log(res)
             this.setData({
               listUserInfo: res.result.data
             }, () => {
+              // 设置导航栏标题为访问空间名称
+              wx.setNavigationBarTitle({
+                title: this.data.listUserInfo.boardName,
+              })
               // 是否是首次访问
               // 受访问将visited id保存到数据库中的visited字段
               // todo：index.wxml中获取的信息还是userinfo中的
               let reset = true
-              console.log(this.data.listUserInfo)
               this.loadMessages(this.data.listUserInfo.boardid, reset)
             })
           })

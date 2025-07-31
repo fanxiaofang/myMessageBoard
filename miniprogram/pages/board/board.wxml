@@ -13,11 +13,7 @@
       <text class="msgcount">留言({{total}})</text>
       <van-button class="btn" color="#72aceb" type="small" bindtap="addMessage">我要留言</van-button>
       <!-- 不是留言板主人 才展示这个“返回我的空间” -->
-      <van-icon wx:if="{{!isMaster}}" 
-        name="home"  
-        color="#bbb" 
-        size="40rpx"  
-        bind:click="gotoIndex"/>
+      <van-button round class="retMyBoardBtn" color="#9de0c0" size="small" bindtap="gotoIndex"><van-icon name="star" color="#f4ee84"  size="45rpx" />我的空间</van-button>
     </view>
   </view>
 

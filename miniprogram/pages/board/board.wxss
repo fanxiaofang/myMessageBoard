@@ -29,11 +29,20 @@
   justify-content: flex-start; /* 子元素靠左排列 */
   gap: 20rpx;              /* 子元素间距 */
   padding: 10rpx 0;
+  text-shadow: 1rpx 1rpx 1rpx rgba(0, 0, 0, 0.1);
 }
 
-.share-icon {
+.btn {
+  text-shadow: 1rpx 1rpx 1rpx rgba(0, 0, 0, 0.3);
+  box-shadow: 1rpx 2rpx 3rpx rgba(0, 0, 0, 0.1);
+}
+
+.retMyBoardBtn {
   margin-left: auto; /* 推向右边 */
   display: flex;
+  text-shadow: 1rpx 1rpx 1rpx rgba(0, 0, 0, 0.3);
+  box-shadow: 1rpx 2rpx 3rpx rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
 }
 
 .msgcount {

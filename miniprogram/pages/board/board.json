@@ -4,8 +4,10 @@
     "van-button": "@vant/weapp/button",
     "van-icon": "@vant/weapp/icon/index"
   },
+  "navigationBarBackgroundColor": "#f8e1c9",
+  "navigationBarTextStyle": "white",
   "onReachBottomDistance": 200,
   "enablePullDownRefresh": true,
-  "backgroundColor": "#fefefe",
+  "backgroundColor": "#c79af3",
   "backgroundTextStyle":"dark"
 }
