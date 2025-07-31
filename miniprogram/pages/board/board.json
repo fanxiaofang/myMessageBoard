@@ -5,7 +5,7 @@
     "van-icon": "@vant/weapp/icon/index"
   },
   "navigationBarBackgroundColor": "#f8e1c9",
-  "navigationBarTextStyle": "white",
+  "navigationBarTextStyle": "black",
   "onReachBottomDistance": 200,
   "enablePullDownRefresh": true,
   "backgroundColor": "#c79af3",
