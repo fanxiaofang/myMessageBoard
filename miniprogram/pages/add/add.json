@@ -1,5 +1,7 @@
 {
   "usingComponents": {
     "van-button": "@vant/weapp/button"
-  }
+  },
+  "navigationBarBackgroundColor": "#f8e1c9",
+  "navigationBarTextStyle": "black"
 }

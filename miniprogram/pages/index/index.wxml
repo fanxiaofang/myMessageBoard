@@ -1,8 +1,7 @@
 <!-- todo： 这里 boardname 的加载总是在 button加载之后才会加载
 解决方法：确保数据先加载，再渲染页面
  -->
- <!-- todo：根据boardid展示对应的boardName -->
-<!-- <view class="page"> -->
+ <!-- <button open-type="openSetting">打开授权设置页</button> -->
 
   <view class="header">
     <!-- <view wx:if="{{userInfo.boardName}}">{{userInfo.boardName}}</view>
@@ -13,12 +12,18 @@
       <text class="msgcount">留言({{total}})</text>
       <van-button class="btn" color="#72aceb" type="small" bindtap="addMessage">我要留言</van-button>
       <!-- 是留言板主人 才展示这个分享按钮 -->
+      <!-- <van-button wx:if="{{isMaster}}"
+        class="shareBtn"
+        open-type="share"
+        bindtap="shareBoard"
+      >分享</van-button> -->
+
       <van-icon wx:if="{{isMaster}}" 
         class="share-icon" 
         name="share"  
         color="#bbb" 
-        size="40rpx"  
-        open-type="share"/>
+        size="40rpx"
+        bind:click="shareTo"  />
     </view>
   </view>
 

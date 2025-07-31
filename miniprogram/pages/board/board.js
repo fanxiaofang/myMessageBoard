@@ -237,6 +237,8 @@ Page({
       let reset = true
       this.loadMessages(boardid, reset)
     }
+
+    wx.hideHomeButton()
   },
 
   /**

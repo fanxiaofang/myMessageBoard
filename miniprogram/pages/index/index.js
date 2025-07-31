@@ -140,14 +140,9 @@ Page({
 
   shareTo: function() {
     console.log('onshareTo')
-    wx.showActionSheet({
-      itemList: ['分享给微信好友'],
-      success: (res) => {
-        if (res.tapIndex == 0) {
-          // 触发分享
-          this.onShareAppMessage();
-        }
-      }
+    wx.showModal({
+      title:'提示',
+      content:'点击右上角...分享你的留言板给朋友'
     })
   },
   /**
@@ -288,8 +283,9 @@ Page({
    */
   onShareAppMessage() {
     console.log('onShareAppMessage, boarid:', this.data.listUserInfo.boardid)
+    const myworld = '欢迎来到我的世界，这里是 ' + this.data.listUserInfo.boardName
     return {
-      title: '来踩踩',
+      title: myworld,
       path: '/pages/board/board?boardid=' + this.data.listUserInfo.boardid + '&shareType=visit',
       imageUrl: '../../images/infp11.png'
     }

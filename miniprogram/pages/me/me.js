@@ -151,7 +151,6 @@ Page({
     wx.cloud.callFunction({
       name: 'loadUserInfo'
     }).then(res => {
-      console.log(res)
       const userData = res.result.data
 
       this.setData({
@@ -219,6 +218,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage() {
-
+    console.log('onShareAppMessage, boarid:', this.data.listUserInfo.boardid)
+    const myworld = '欢迎来到我的世界：' + this.data.listUserInfo.boardName
+    return {
+      title: myworld,
+      path: '/pages/board/board?boardid=' + this.data.listUserInfo.boardid + '&shareType=visit',
+      imageUrl: '../../images/infp11.png'
+    }
   }
 })

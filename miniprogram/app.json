@@ -13,11 +13,15 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "空间"
+        "text": "",
+        "iconPath": "images/space-no.png",
+        "selectedIconPath": "images/space-yes1.png"
       },
       {
         "pagePath": "pages/me/me",
-        "text": "我"
+        "text": "",
+        "iconPath": "images/dead-no.png",
+        "selectedIconPath": "images/dead-yes.png"
       }
     ]
   },

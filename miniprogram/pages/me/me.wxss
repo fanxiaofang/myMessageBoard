@@ -107,3 +107,7 @@
   box-shadow: 0 -2rpx 6rpx rgba(0,0,0,0.1); /* 轻微阴影，区分内容 */
   z-index: 100; /* 确保按钮在最上层 */
 }
+
+page {
+  background-color: #e1f5f8;
+}
